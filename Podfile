@@ -7,6 +7,7 @@ target 'LibraryApp' do
 
   # Pods for LibraryApp
 pod 'Kingfisher', '~> 6.0'
+pod 'lottie-ios'
 
 
 end

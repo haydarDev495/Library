@@ -22,6 +22,10 @@
 		DADB1E8C29E99B8800D1364C /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB1E8B29E99B8800D1364C /* AppConstant.swift */; };
 		DADB1E9129E9A1DA00D1364C /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DADB1E9029E9A1DA00D1364C /* Onboarding.storyboard */; };
 		DADB1E9329E9A1E700D1364C /* OnbordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB1E9229E9A1E700D1364C /* OnbordingViewController.swift */; };
+		DADB1E9629E9A26400D1364C /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB1E9529E9A26400D1364C /* UserDefaultsManager.swift */; };
+		DADB1E9929E9A33400D1364C /* OnbordingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB1E9829E9A33400D1364C /* OnbordingEnum.swift */; };
+		DADB1E9E29E9A7E900D1364C /* 99349-girl-with-books.json in Resources */ = {isa = PBXBuildFile; fileRef = DADB1E9C29E9A7E900D1364C /* 99349-girl-with-books.json */; };
+		DADB1E9F29E9A7E900D1364C /* 114386-welcome.json in Resources */ = {isa = PBXBuildFile; fileRef = DADB1E9D29E9A7E900D1364C /* 114386-welcome.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		DADB1E8B29E99B8800D1364C /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		DADB1E9029E9A1DA00D1364C /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		DADB1E9229E9A1E700D1364C /* OnbordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingViewController.swift; sourceTree = "<group>"; };
+		DADB1E9529E9A26400D1364C /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		DADB1E9829E9A33400D1364C /* OnbordingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbordingEnum.swift; sourceTree = "<group>"; };
+		DADB1E9C29E9A7E900D1364C /* 99349-girl-with-books.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "99349-girl-with-books.json"; path = "../../../../99349-girl-with-books.json"; sourceTree = "<group>"; };
+		DADB1E9D29E9A7E900D1364C /* 114386-welcome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "114386-welcome.json"; path = "../../../../114386-welcome.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 		DA0E6AA029E8B31A000193D9 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
+				DADB1E9429E9A23400D1364C /* T */,
 				DADB1E8D29E9A1C400D1364C /* Onbording */,
 				DA0E6AA429E8B37B000193D9 /* LaunchScreen */,
 				DA0E6AA129E8B35C000193D9 /* BooksViewController */,
@@ -156,6 +165,7 @@
 				DA3D841629E8B2B9007F24D0 /* Assets.xcassets */,
 				DA3D841B29E8B2B9007F24D0 /* Info.plist */,
 				DADB1E8729E9835200D1364C /* Core */,
+				DADB1E9A29E9A7CC00D1364C /* Components */,
 			);
 			path = LibraryApp;
 			sourceTree = "<group>";
@@ -198,6 +208,7 @@
 			children = (
 				DADB1E8829E9836A00D1364C /* LoadingLabel.swift */,
 				DADB1E8B29E99B8800D1364C /* AppConstant.swift */,
+				DADB1E9529E9A26400D1364C /* UserDefaultsManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -205,6 +216,7 @@
 		DADB1E8D29E9A1C400D1364C /* Onbording */ = {
 			isa = PBXGroup;
 			children = (
+				DADB1E9729E9A32B00D1364C /* Enum */,
 				DADB1E8F29E9A1CD00D1364C /* Storyboard */,
 				DADB1E8E29E9A1C800D1364C /* ViewController */,
 			);
@@ -225,6 +237,38 @@
 				DADB1E9029E9A1DA00D1364C /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		DADB1E9429E9A23400D1364C /* T */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = T;
+			sourceTree = "<group>";
+		};
+		DADB1E9729E9A32B00D1364C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				DADB1E9829E9A33400D1364C /* OnbordingEnum.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		DADB1E9A29E9A7CC00D1364C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DADB1E9B29E9A7D700D1364C /* Lottie */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DADB1E9B29E9A7D700D1364C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				DADB1E9C29E9A7E900D1364C /* 99349-girl-with-books.json */,
+				DADB1E9D29E9A7E900D1364C /* 114386-welcome.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +334,8 @@
 				DA3D841A29E8B2B9007F24D0 /* LaunchScreen.storyboard in Resources */,
 				DADB1E9129E9A1DA00D1364C /* Onboarding.storyboard in Resources */,
 				DA0E6AA829E8B395000193D9 /* Books.storyboard in Resources */,
+				DADB1E9E29E9A7E900D1364C /* 99349-girl-with-books.json in Resources */,
+				DADB1E9F29E9A7E900D1364C /* 114386-welcome.json in Resources */,
 				DAC33EFD29E9646000E1765A /* Detail.storyboard in Resources */,
 				DA3D841729E8B2B9007F24D0 /* Assets.xcassets in Resources */,
 			);
@@ -348,8 +394,10 @@
 				DA3D840E29E8B2B7007F24D0 /* AppDelegate.swift in Sources */,
 				DAC33EF829E9588600E1765A /* BooksListViewModel.swift in Sources */,
 				DA0E6AAD29E8B50C000193D9 /* BooksCollectionViewCell.swift in Sources */,
+				DADB1E9929E9A33400D1364C /* OnbordingEnum.swift in Sources */,
 				DADB1E8929E9836A00D1364C /* LoadingLabel.swift in Sources */,
 				DA3D841029E8B2B7007F24D0 /* SceneDelegate.swift in Sources */,
+				DADB1E9629E9A26400D1364C /* UserDefaultsManager.swift in Sources */,
 				DA0E6AAA29E8B3A7000193D9 /* BooksViewController.swift in Sources */,
 				DAC33EFF29E9646D00E1765A /* DetailViewController.swift in Sources */,
 				DADB1E8C29E99B8800D1364C /* AppConstant.swift in Sources */,

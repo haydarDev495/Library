@@ -21,6 +21,11 @@ class BooksViewController: UIViewController {
         super.viewDidLoad()
         configure()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkOnbording()
+    }
 
 }
 
@@ -40,6 +45,14 @@ private extension BooksViewController {
     func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+    
+    func checkOnbording() {
+        if !UserDefaultsManager.shared.getValue(data: .onboarding) {
+            let vc = UIStoryboard(name: "Onboarding", bundle: nil).instantiateViewController(withIdentifier: "OnbordingViewController") as! OnbordingViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
     }
     
     func fetchBooks () {
