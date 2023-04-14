@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Books View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BooksViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="BooksViewController" customModule="LibraryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="63h-iw-Jgi">
+                                <rect key="frame" x="0.0" y="129" width="393" height="723"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3wh-Q9-bLQ">
+                                    <size key="itemSize" width="393" height="164"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BooksCollectionViewCell" id="cab-Qv-8jP" customClass="BooksCollectionViewCell" customModule="LibraryApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="164"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lYP-hw-3EO">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="164"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IjM-pV-SeR">
+                                                    <rect key="frame" x="20" y="7" width="120" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="Cjs-MR-X0c"/>
+                                                        <constraint firstAttribute="height" constant="150" id="mhv-Z9-KPS"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghd-aW-hkj">
+                                                    <rect key="frame" x="150" y="62.333333333333336" width="223" height="22.333333333333336"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlY-Sl-wji">
+                                                    <rect key="frame" x="150" y="30" width="223" height="22.333333333333329"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ghd-aW-hkj" firstAttribute="leading" secondItem="FlY-Sl-wji" secondAttribute="leading" id="7vX-Lx-EQn"/>
+                                                <constraint firstAttribute="trailing" secondItem="FlY-Sl-wji" secondAttribute="trailing" constant="20" id="GSQ-nc-7Qu"/>
+                                                <constraint firstItem="IjM-pV-SeR" firstAttribute="leading" secondItem="lYP-hw-3EO" secondAttribute="leading" constant="20" id="OjY-vK-Iwz"/>
+                                                <constraint firstItem="IjM-pV-SeR" firstAttribute="centerY" secondItem="lYP-hw-3EO" secondAttribute="centerY" id="ZVA-NO-Kxh"/>
+                                                <constraint firstItem="FlY-Sl-wji" firstAttribute="centerY" secondItem="IjM-pV-SeR" secondAttribute="centerY" multiplier="0.5" id="d64-DB-t0O"/>
+                                                <constraint firstItem="Ghd-aW-hkj" firstAttribute="top" secondItem="FlY-Sl-wji" secondAttribute="bottom" constant="10" id="dvY-N1-spb"/>
+                                                <constraint firstItem="FlY-Sl-wji" firstAttribute="leading" secondItem="IjM-pV-SeR" secondAttribute="trailing" constant="10" id="qei-Aw-cN4"/>
+                                                <constraint firstItem="Ghd-aW-hkj" firstAttribute="trailing" secondItem="FlY-Sl-wji" secondAttribute="trailing" id="qjc-NF-RQ5"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="393" height="164"/>
+                                        <connections>
+                                            <outlet property="bookImage" destination="IjM-pV-SeR" id="zqU-wK-Mr8"/>
+                                            <outlet property="data" destination="Ghd-aW-hkj" id="3pO-Yi-dwC"/>
+                                            <outlet property="title" destination="FlY-Sl-wji" id="OrG-ON-Jrc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Books" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVn-XP-bvZ">
+                                <rect key="frame" x="150" y="59" width="93" height="36.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KVn-XP-bvZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Rf-AS-82N"/>
+                            <constraint firstItem="63h-iw-Jgi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="Zp8-tV-zjk"/>
+                            <constraint firstItem="63h-iw-Jgi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fh1-qT-LSG"/>
+                            <constraint firstItem="KVn-XP-bvZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jpL-f8-p8D"/>
+                            <constraint firstItem="63h-iw-Jgi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="q2V-uQ-tse"/>
+                            <constraint firstAttribute="bottom" secondItem="63h-iw-Jgi" secondAttribute="bottom" id="z5m-9l-a0N"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="63h-iw-Jgi" id="i2a-4J-7e5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116.79389312977099" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
