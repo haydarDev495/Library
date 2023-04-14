@@ -14,7 +14,7 @@ class BooksCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var bookImage: UIImageView!
     
-    func setupUI(book: doc) {
+    func setupUI(book: Doc) {
         guard let nameFirst = book.author_name?.first, let year = book.first_publish_year else { return }
         title.text = "Author name: \(nameFirst)"
         data.text = "Firt publish year: \(year)"
@@ -24,7 +24,10 @@ class BooksCollectionViewCell: UICollectionViewCell {
     func setupBookImage(coverI : Int?) {
         guard let cover = coverI else { return }
 
-        guard let url = URL(string: "https://covers.openlibrary.org/b/id/" + "\(cover)" + "-M.jpg") else { return }
+        guard let url = URL(string: "\(AppConstantImage.domain)\(AppConstantImage.id)" + "\(cover)" + "-M.jpg") else { return }
         bookImage.kf.setImage(with: url)
     }
 }
+
+
+

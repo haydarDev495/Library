@@ -6,21 +6,21 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class BooksViewController: UIViewController {
 
     // - UI
+    @IBOutlet weak var loadingLabel: LoadingLabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     // - Data
-    private var bookArray: [doc] = []
+    private var bookArray: [Doc] = []
+    private var currentPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
 
 }
 
@@ -28,8 +28,13 @@ class BooksViewController: UIViewController {
 // MARK: Configure
 private extension BooksViewController {
     func configure() {
+        setupUI()
         configureCollectionView()
-        importJson()
+        fetchBooks()
+    }
+    
+    func setupUI() {
+        loadingLabel.start()
     }
     
     func configureCollectionView() {
@@ -37,16 +42,17 @@ private extension BooksViewController {
         collectionView.delegate = self
     }
     
-    func importJson () {
-        guard let jsonUrl = URL(string: "https://openlibrary.org/search.json?author=A") else { return }
+    func fetchBooks () {
+        currentPage += 1
+        guard let jsonUrl = URL(string: "\(AppConstant.domain)/search.json?q=*&fields=*,&page=\(currentPage)&limit=5") else { return }
         URLSession.shared.dataTask(with: jsonUrl, completionHandler: { [weak self] (data, response, error) in
             guard let data = data , let sSelf = self else { return }
             do{
                 let object = try JSONDecoder().decode(BookViewModel.self, from: data)
-                sSelf.bookArray = object.docs
+                sSelf.bookArray += object.docs
                 DispatchQueue.main.async { [weak self] in
                     guard let sSelf = self else { return }
-                    sSelf.collectionView.reloadData()
+                    sSelf.updateCollectionView()
                 }
             } catch {
                 print(error)
@@ -54,9 +60,14 @@ private extension BooksViewController {
         }).resume()
     }
     
-    func showDetailVC() {
+    func updateCollectionView() {
+        collectionView.reloadData()
+        loadingLabel.stop(withText: "")
+    }
+    
+    func showDetailVC(indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        
+        vc.detailBook = bookArray[indexPath.item]
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -75,7 +86,6 @@ extension BooksViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
 }
 
 // MARK: -
@@ -83,11 +93,13 @@ extension BooksViewController: UICollectionViewDataSource {
 extension BooksViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showDetailVC()
+        showDetailVC(indexPath: indexPath)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: <#T##CGFloat#>, height: <#T##CGFloat#>)
-//    }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == bookArray.count - 1 {
+            fetchBooks()
+        }
+    }
 }
 

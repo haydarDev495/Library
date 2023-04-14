@@ -81,11 +81,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDY-w7-PmK" customClass="LoadingLabel" customModule="LibraryApp" customModuleProvider="target">
+                                <rect key="frame" x="196.66666666666666" y="426" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KVn-XP-bvZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7Rf-AS-82N"/>
+                            <constraint firstItem="hDY-w7-PmK" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Hjt-To-e5I"/>
+                            <constraint firstItem="hDY-w7-PmK" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="Z10-Oc-FI6"/>
                             <constraint firstItem="63h-iw-Jgi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="70" id="Zp8-tV-zjk"/>
                             <constraint firstItem="63h-iw-Jgi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fh1-qT-LSG"/>
                             <constraint firstItem="KVn-XP-bvZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jpL-f8-p8D"/>
@@ -95,6 +103,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="63h-iw-Jgi" id="i2a-4J-7e5"/>
+                        <outlet property="loadingLabel" destination="hDY-w7-PmK" id="y1T-sf-ABi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

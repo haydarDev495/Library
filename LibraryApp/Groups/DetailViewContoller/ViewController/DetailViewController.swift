@@ -11,10 +11,11 @@ import Kingfisher
 class DetailViewController: UIViewController {
 
     // - UI
+    @IBOutlet weak var firtPublish: UILabel!
     @IBOutlet weak var autorName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailInfo: UILabel!
-    @IBOutlet weak var raitinView: UILabel!
+    @IBOutlet weak var raitinLabel: UILabel!
     
     // - Data
     var detailBook: Doc?
@@ -24,6 +25,9 @@ class DetailViewController: UIViewController {
         configure()
     }
     
+    @IBAction func backButtonAction() {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: -
@@ -34,12 +38,25 @@ private extension DetailViewController {
     }
     
     func setupUI() {
-        guard let name = detailBook?.author_name?.first ,
-              let image = detailBook?.cover_i,
-              let detailInfo = detailBook?.subtitle,
-              let raiting = detailBook?.publisher?.first else { return }
         
-        autorName.text = name
-//        imageView.kf.setImage(with: <#T##Source?#>)
+        detailInfo.text = "Detail: \(detailBook?.subtitle ?? "Dont have information")"
+        autorName.text = "Autor: \(detailBook?.author_name?.first ?? "Dont have Name")"
+
+        if let year = detailBook?.first_publish_year {
+            firtPublish.text = "Publish year: \(String(year))"
+        }
+        
+        if let raiting = detailBook?.ratings_average {
+            raitinLabel.text = "Raiting: \(String(raiting))"
+        }
+        
+        guard  let cover = detailBook?.cover_i else { return }
+        setupBookImage(coverI: cover)
+    }
+    
+    func setupBookImage(coverI : Int?) {
+        guard let cover = coverI else { return }
+        guard let url = URL(string: "\(AppConstantImage.domain)\(AppConstantImage.id)" + "\(cover)" + "-M.jpg") else { return }
+        imageView.kf.setImage(with: url)
     }
 }

@@ -27,6 +27,5 @@ struct Doc: Decodable{
     let publisher: [String]?
     let author_alternative_name: [String]?
     let ia: [String]?
-    
-    
+    let ratings_average: Double?
 }
