@@ -10,4 +10,7 @@
 
 
 работа приложения(Gif): 
+
+
+
 ![Запись экрана 2023-04-15 в 19 22 03 (1) 20 13 36](https://user-images.githubusercontent.com/97893617/232245411-17f1f4a5-3d08-4616-bb52-9cc8badebcb9.gif)
