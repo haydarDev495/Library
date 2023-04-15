@@ -10,4 +10,4 @@
 
 
 
-![Запись экрана 2023-04-15 в 19 22 03](https://user-images.githubusercontent.com/97893617/232242289-7361c929-95ff-481c-ab57-4bcc662c72e9.gif)
+![Запись экрана 2023-04-15 в 19 22 03 (2)](https://user-images.githubusercontent.com/97893617/232245225-bcb9ef04-e959-4547-b8dd-1fbab2e585dd.gif)
