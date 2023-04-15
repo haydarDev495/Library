@@ -86,7 +86,6 @@
 		DA0E6AA029E8B31A000193D9 /* Groups */ = {
 			isa = PBXGroup;
 			children = (
-				DADB1E9429E9A23400D1364C /* T */,
 				DADB1E8D29E9A1C400D1364C /* Onbording */,
 				DA0E6AA429E8B37B000193D9 /* LaunchScreen */,
 				DA0E6AA129E8B35C000193D9 /* BooksViewController */,
@@ -237,13 +236,6 @@
 				DADB1E9029E9A1DA00D1364C /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		DADB1E9429E9A23400D1364C /* T */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = T;
 			sourceTree = "<group>";
 		};
 		DADB1E9729E9A32B00D1364C /* Enum */ = {

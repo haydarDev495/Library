@@ -11,8 +11,8 @@ import Lottie
 class OnbordingViewController: UIViewController {
 
     // - UI 
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var welcomeImage: UIImageView!
-    
     @IBOutlet weak var lottieAnimation: LottieAnimationView!
     @IBOutlet weak var welcomeLabel: UILabel!
     
@@ -24,9 +24,7 @@ class OnbordingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        lottieAnimation.play()
-        lottieAnimation.loopMode = .loop
+        configure()
         
     }
     
@@ -35,31 +33,51 @@ class OnbordingViewController: UIViewController {
         
         switch hideOnboarding {
         case 1:
-            let animation = CATransition()
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-            animation.type = CATransitionType.push
-            animation.subtype = CATransitionSubtype.fromRight
-            animation.duration = 0.5
-            welcomeLabel.layer.add(animation, forKey: nil)
-//            infoLabel.layer.add(animation, forKey: nil)
-            welcomeImage.layer.add(animation, forKey: nil)
-            welcomeLabel.text = "Hello , i am Haydar and i am iOS developer"
-//            infoLabel.text = "Get rid of ads and start surfing faster with ad blocker"
-            welcomeImage.image = UIImage(named: "rabbit")
-//            bigGreenViewWidthConstraint.constant = 6
-//            smallGreenViewWidthConstraint.constant = 30
-            UIView.animate(withDuration: 0.5) { [weak self] in
-//                guard let sSelf = self else { return }
-//                sSelf.bigGreenView.backgroundColor = UIColor(red: 0.529, green: 0.953, blue: 0.604, alpha: 0.31)
-//                sSelf.smallGreenView.backgroundColor = UIColor(red: 0.529, green: 0.953, blue: 0.604, alpha: 1)
-//                sSelf.view.layoutIfNeeded()
-            }
-            break
-        case 2:
-            break
+            nextAction()
         default:
             UserDefaultsManager.shared.saveValue(value: true, data: .onboarding)
             dismiss(animated: true)
         }
+    }
+}
+
+// MARK: -
+// MARK: COnfigure
+private extension OnbordingViewController {
+    func configure() {
+        configureUI()
+    }
+    
+    func configureUI() {
+        
+        // Animation
+        lottieAnimation.play()
+        lottieAnimation.loopMode = .loop
+        
+        // Next button gradient
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [UIColor.blue.cgColor, UIColor.red.cgColor]
+        gradient.locations = [0.0 , 1.0]
+        gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradient.frame = CGRect(x: 0.0, y: 0.0,
+                                width: self.nextButton.frame.size.width,
+                                height: self.nextButton.frame.size.height)
+
+        self.nextButton.layer.insertSublayer(gradient, at: 0)
+        
+    }
+    
+    func nextAction() {
+        let animation = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.type = CATransitionType.push
+        animation.subtype = CATransitionSubtype.fromRight
+        animation.duration = 0.5
+        welcomeLabel.layer.add(animation, forKey: nil)
+        welcomeImage.layer.add(animation, forKey: nil)
+        welcomeLabel.text = "Enjoy with my TestApp"
+        welcomeImage.image = UIImage(named: "rabbit")
+        nextButton.setTitle("Go", for: .normal)
     }
 }
